@@ -26,11 +26,26 @@ namespace Presentation.WPF
             _dbContext = dbContext;
         }
 
-        private void Window_Loaded(object sender, RoutedEventArgs e)
+        private void TextBox_TextChanged(object sender, TextChangedEventArgs e)
         {
-            // Ejemplo: Verificar conexión a la base de datos
-            var employees = _dbContext.Employees.ToList();
-            MessageBox.Show($"Hay {employees.Count} empleados en la base de datos.");
+
         }
+
+
+        //private void BtnShowEmployees_Click(object sender, RoutedEventArgs e)
+        //{
+        //    try
+        //    {
+        //        // Obtener el número de empleados desde la base de datos
+        //        int employeeCount = _dbContext.Arls.Count();
+
+        //        // Mostrar el número en el Label
+        //        LblEmployeeCount.Content = $"Número de empleados: {employeeCount}";
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        MessageBox.Show($"Error al obtener empleados: {ex.Message}", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+        //    }
+        //}
     }
 }

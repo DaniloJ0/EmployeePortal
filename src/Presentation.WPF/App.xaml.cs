@@ -13,7 +13,7 @@ namespace Presentation.WPF
     /// </summary>
     public partial class App : Application
     {
-        public static IServiceProvider ServiceProvider { get; private set; }
+        public static IServiceProvider serviceProvider { get; private set; }
 
         protected override void OnStartup(StartupEventArgs e)
         {
@@ -21,11 +21,12 @@ namespace Presentation.WPF
             var services = new ServiceCollection();
             ConfigureServices(services);
 
-            ServiceProvider = services.BuildServiceProvider();
+            serviceProvider = services.BuildServiceProvider();
 
             // Mostrar la ventana principal
-            var mainWindow = ServiceProvider.GetRequiredService<MainWindow>();
+            var mainWindow = serviceProvider.GetRequiredService<MainWindow>();
             mainWindow.Show();
+
         }
         private static void ConfigureServices(IServiceCollection services)
         {
