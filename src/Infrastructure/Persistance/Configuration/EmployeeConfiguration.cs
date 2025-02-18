@@ -33,7 +33,8 @@ public class EmployeeConfiguration : IEntityTypeConfiguration<Employee>
 
         builder.Property(c => c.BloodType).HasMaxLength(3);
 
-        builder.Property(c => c.Salary);
+        builder.Property(c => c.Salary)
+            .HasColumnType("decimal(18,4)");
 
         builder.Property(c => c.Phone)
            .HasConversion(
