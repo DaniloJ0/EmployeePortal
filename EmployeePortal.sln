@@ -5,11 +5,11 @@ VisualStudioVersion = 17.10.35013.160
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Presentation.WPF", "src\Presentation.WPF\Presentation.WPF.csproj", "{D1EEDD78-2DE6-41F7-8A07-E624A9E91B1C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Infrastructure", "src\Infrastructure\Infrastructure.csproj", "{BD00EB88-00CA-430F-9491-FB4568C87102}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Infrastructure", "src\Infrastructure\Infrastructure.csproj", "{BD00EB88-00CA-430F-9491-FB4568C87102}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Domain", "src\Domain\Domain.csproj", "{8D603C70-A2D1-40F2-8060-12CC91C78B85}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Domain", "src\Domain\Domain.csproj", "{8D603C70-A2D1-40F2-8060-12CC91C78B85}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Application", "src\Application\Application.csproj", "{950F3AB9-3682-4CC9-A13B-EB161CD88032}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Core", "src\Core\Core.csproj", "{950F3AB9-3682-4CC9-A13B-EB161CD88032}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
