@@ -2,6 +2,6 @@
 
 public interface IEpsRepository
 {
-    Task<Eps?> GetByIdAsync(Eps id);
+    Task<Eps?> GetByIdAsync(Guid id);
     Task Add(Eps customer);
 }

@@ -35,4 +35,6 @@ public class Employee
     public Pension Pension { get; set; }
 
     public decimal Salary { get; set; }
+
+    public DateTime CreatedAt { get; set; }
 }

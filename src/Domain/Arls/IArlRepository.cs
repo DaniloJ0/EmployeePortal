@@ -2,6 +2,6 @@
 
 public interface IArlRepository
 {
-    Task<Arl?> GetByIdAsync(Arl id);
+    Task<Arl?> GetByIdAsync(Guid id);
     Task Add(Arl customer);
 }

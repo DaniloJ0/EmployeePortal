@@ -2,6 +2,6 @@
 
 public interface IEmployeeRepository
 {
-    Task<Employee?> GetByIdAsync(Employee id);
+    Task<Employee?> GetByIdAsync(EmployeeId id);
     Task Add(Employee customer);
 }

@@ -2,6 +2,6 @@
 
 public interface IPensionRepository
 {
-    Task<Pension?> GetByIdAsync(Pension id);
+    Task<Pension?> GetByIdAsync(Guid id);
     Task Add(Pension customer);
 }
