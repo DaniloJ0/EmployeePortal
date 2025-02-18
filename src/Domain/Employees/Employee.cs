@@ -7,7 +7,7 @@ namespace Domain.Employees;
 
 public class Employee
 {
-    public Employee(EmployeeId id, string name, string cedula, string bloodType, PhoneNumber phone, ArlId arlId, EpsId epsId, PensionId pensionId)
+    public Employee(EmployeeId id, string name, string cedula, string bloodType, PhoneNumber phone, Guid arlId, Guid epsId, Guid pensionId)
     {
         Id = id;
         Name = name;
@@ -25,13 +25,13 @@ public class Employee
     public string BloodType { get; set; }
     public PhoneNumber Phone { get; set; }
 
-    public ArlId ArlId { get; set; }
+    public Guid ArlId { get; set; }
     public Arl Arl { get; set; }
 
-    public EpsId EpsId { get; set; }
+    public Guid EpsId { get; set; }
     public Eps Eps { get; set; }
 
-    public PensionId PensionId { get; set; }
+    public Guid PensionId { get; set; }
     public Pension Pension { get; set; }
 
     public decimal Salary { get; set; }
