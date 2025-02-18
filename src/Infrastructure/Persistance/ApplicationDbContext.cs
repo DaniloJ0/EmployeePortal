@@ -3,7 +3,7 @@ using Domain.Arls;
 using Domain.Employees;
 using Domain.Epss;
 using Domain.Pensions;
-using HR_Platform.Application.Data;
+using Core.Data;
 using Infrastructure.Persistance.Seed;
 using Microsoft.EntityFrameworkCore;
 

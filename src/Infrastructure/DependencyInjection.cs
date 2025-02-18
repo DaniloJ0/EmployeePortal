@@ -1,26 +1,29 @@
-﻿using Domain.Arls;
+﻿using Core.Data;
+using Domain.Arls;
 using Domain.Employees;
 using Domain.Epss;
 using Domain.Pensions;
-using HR_Platform.Application.Data;
 using Infrastructure.Persistance;
 using Infrastructure.Persistance.Repositories;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 
 namespace Infrastructure;
 
 public static class DependencyInjection
 {
-    public static IServiceCollection AddInfrastructure(this IServiceCollection services)
+    public static IServiceCollection AddInfrastructure(this IServiceCollection services, IConfiguration configuration)
     {
-        services.AddPersistance();
+        services.AddPersistance(configuration);
 
         return services;
     }
 
-    public static IServiceCollection AddPersistance(this IServiceCollection services)
+    public static IServiceCollection AddPersistance(this IServiceCollection services, IConfiguration configuration)
     {
-        //services.AddDbContext<ApplicationDbContext>(options => options.UseSqlServer());
+        services.AddDbContext<ApplicationDbContext>(options =>
+                options.UseSqlServer(configuration.GetConnectionString("DefaultConnection")));
 
         services.AddScoped<IApplicationDBContext>(sp => sp.GetRequiredService<ApplicationDbContext>());
 

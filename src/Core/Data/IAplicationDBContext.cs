@@ -4,7 +4,7 @@ using Domain.Epss;
 using Domain.Pensions;
 using Microsoft.EntityFrameworkCore;
 
-namespace HR_Platform.Application.Data;
+namespace Core.Data;
 
 public interface IApplicationDBContext
 {

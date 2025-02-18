@@ -1,6 +1,6 @@
-﻿using Application.Interfaces;
+﻿using Core.Interfaces;
 
-namespace Application.Servicess;
+namespace Core.Servicess;
 
 public class PasswordHasher : IPasswordHasher
 {

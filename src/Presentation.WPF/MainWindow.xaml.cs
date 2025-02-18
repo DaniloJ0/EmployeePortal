@@ -1,4 +1,6 @@
-﻿using System.Text;
+﻿using Infrastructure.Persistance;
+using System;
+using System.Text;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
@@ -16,9 +18,19 @@ namespace Presentation.WPF
     /// </summary>
     public partial class MainWindow : Window
     {
-        public MainWindow()
+        private readonly ApplicationDbContext _dbContext;
+
+        public MainWindow(ApplicationDbContext dbContext)
         {
             InitializeComponent();
+            _dbContext = dbContext;
+        }
+
+        private void Window_Loaded(object sender, RoutedEventArgs e)
+        {
+            // Ejemplo: Verificar conexión a la base de datos
+            var employees = _dbContext.Employees.ToList();
+            MessageBox.Show($"Hay {employees.Count} empleados en la base de datos.");
         }
     }
 }
