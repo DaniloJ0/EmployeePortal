@@ -7,7 +7,7 @@ namespace Domain.Employees;
 
 public class Employee
 {
-    public Employee(EmployeeId id, string name, string cedula, string bloodType, PhoneNumber phone, Guid arlId, Guid epsId, Guid pensionId)
+    public Employee(EmployeeId id, string name, string cedula, string bloodType, PhoneNumber phone, Guid arlId, Guid epsId, Guid pensionId, decimal salary, DateTime createdAt)
     {
         Id = id;
         Name = name;
@@ -17,6 +17,8 @@ public class Employee
         ArlId = arlId;
         EpsId = epsId;
         PensionId = pensionId;
+        Salary = salary;
+        CreatedAt = createdAt;
     }
 
     public EmployeeId Id { get; set; }
