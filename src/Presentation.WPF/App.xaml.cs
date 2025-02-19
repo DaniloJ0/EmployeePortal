@@ -4,13 +4,11 @@ using System.IO;
 using System.Windows;
 using Infrastructure;
 using Core;
+using Presentation.WPF.Views;
 
 
 namespace Presentation.WPF
 {
-    /// <summary>
-    /// Interaction logic for App.xaml
-    /// </summary>
     public partial class App : Application
     {
         public static IServiceProvider serviceProvider { get; private set; }
@@ -46,6 +44,8 @@ namespace Presentation.WPF
 
             // Ventanas de WPF
             services.AddTransient<MainWindow>();
+            services.AddTransient<PortalEmployee>();
+            services.AddTransient<Register>();
         }
     }
 

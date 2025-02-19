@@ -1,46 +1,38 @@
 ﻿using Core.Interfaces;
-using Domain.Arls;
-using Domain.Employees;
-using Domain.Epss;
-using Domain.Pensions;
 using Domain.Primitives;
 using Domain.Users;
 using Domain.ValueObjects;
-using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.DependencyInjection;
 using System.Windows;
 
 namespace Presentation.WPF.Views
 {
-    /// <summary>
-    /// Interaction logic for Register.xaml
-    /// </summary>
     public partial class Register : Window
     {
-        private readonly IArlRepository _arlRepository;
-        private readonly IPensionRepository _pensionRepository;
-        private readonly IEpsRepository _epsRepository;
-        private readonly IEmployeeRepository _employeeRepository;
         private readonly IUserRepository _userRepository;
         private readonly IPasswordHasher _passwordHasher;
         private readonly IUnitOfWork _unitOfWork;
-        public Register(IArlRepository arlRepository, IPensionRepository pensionRepository, IEpsRepository epsRepository, IEmployeeRepository employeeRepository, IUnitOfWork unitOfWork, IUserRepository userRepositor, IPasswordHasher passwordHasher)
+        private readonly IServiceProvider _serviceProvider;
+
+        public Register(IUnitOfWork unitOfWork, IUserRepository userRepositor, IPasswordHasher passwordHasher, IServiceProvider serviceProvider)
         {
             InitializeComponent();
-            _arlRepository = arlRepository;
-            _pensionRepository = pensionRepository;
-            _epsRepository = epsRepository;
-            _employeeRepository = employeeRepository;
             _userRepository = userRepositor;
             _passwordHasher = passwordHasher;
+            _serviceProvider = serviceProvider;
             _unitOfWork = unitOfWork;
+        }
+
+        private void ReturnToMainWindow()
+        {
+            var mainWindow = _serviceProvider.GetRequiredService<MainWindow>();
+            mainWindow.Show();
+            this.Close();
         }
 
         private void BackBtn_Click(object sender, RoutedEventArgs e)
         {
-            MainWindow mainWindow = new(_arlRepository, _pensionRepository, _epsRepository, _employeeRepository, _unitOfWork, _userRepository, _passwordHasher);
-            mainWindow.Show();
-
-            this.Close();
+            ReturnToMainWindow();
         }
 
         private async void RegisterBtn_Click(object sender, RoutedEventArgs e)
@@ -83,10 +75,7 @@ namespace Presentation.WPF.Views
 
             MessageBox.Show($"Usuario con email {email} fue registrado exitosamente.");
 
-            MainWindow mainWindow = new(_arlRepository, _pensionRepository, _epsRepository, _employeeRepository, _unitOfWork, _userRepository, _passwordHasher);
-            mainWindow.Show();
-
-            this.Close();
+            ReturnToMainWindow();
         }
     }
 }

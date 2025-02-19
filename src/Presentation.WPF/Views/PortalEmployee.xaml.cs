@@ -1,13 +1,12 @@
 ﻿using ClosedXML.Excel;
 using Core.DTOs;
-using Core.Interfaces;
 using Domain.Arls;
 using Domain.Employees;
 using Domain.Epss;
 using Domain.Pensions;
 using Domain.Primitives;
-using Domain.Users;
 using Domain.ValueObjects;
+using Microsoft.Extensions.DependencyInjection;
 using System.IO;
 using System.Windows;
 using System.Windows.Controls;
@@ -20,11 +19,10 @@ namespace Presentation.WPF.Views
         private readonly IPensionRepository _pensionRepository;
         private readonly IEpsRepository _epsRepository;
         private readonly IEmployeeRepository _employeeRepository;
-        private readonly IUserRepository _userRepository;
-        private readonly IPasswordHasher _passwordHasher;
         private readonly IUnitOfWork _unitOfWork;
+        private readonly IServiceProvider _serviceProvider;
 
-        public PortalEmployee(IArlRepository arlRepository, IPensionRepository pensionRepository, IEpsRepository epsRepository, IEmployeeRepository employeeRepository, IUnitOfWork unitOfWork, IUserRepository userRepositor, IPasswordHasher passwordHasher)
+        public PortalEmployee(IArlRepository arlRepository, IPensionRepository pensionRepository, IEpsRepository epsRepository, IEmployeeRepository employeeRepository, IUnitOfWork unitOfWork, IServiceProvider serviceProvider)
         {
             InitializeComponent();
             HideFields();
@@ -32,9 +30,9 @@ namespace Presentation.WPF.Views
             _pensionRepository = pensionRepository;
             _epsRepository = epsRepository;
             _employeeRepository = employeeRepository;
-            _userRepository = userRepositor;
-            _passwordHasher = passwordHasher;
             _unitOfWork = unitOfWork;
+            _serviceProvider = serviceProvider;
+
             Loaded += LoginWindow_Loaded;
         }
 
@@ -290,7 +288,6 @@ namespace Presentation.WPF.Views
                 {
                     try
                     {
-                        // Obtener el ID del empleado seleccionado
                         Guid employeeId = selectedEmployee.EmployeeId;
 
                         Employee? employee = await _employeeRepository.GetByIdAsync(new EmployeeId(employeeId));
@@ -301,11 +298,9 @@ namespace Presentation.WPF.Views
                             return;
                         }
 
-                        // Llamar al repositorio para eliminar
                         _employeeRepository.Delete(employee);
                         await _unitOfWork.SaveChangesAsync();
 
-                        // Recargar los datos después de la eliminación
                         await UpdateEmployeeGrid();
 
                         MessageBox.Show("Empleado eliminado exitosamente.", "Éxito", MessageBoxButton.OK, MessageBoxImage.Information);
@@ -336,7 +331,6 @@ namespace Presentation.WPF.Views
                 {
                     try
                     {
-                        // Obtener el ID del empleado seleccionado
                         Guid employeeId = selectedEmployee.EmployeeId;
 
                         Employee? employee = await _employeeRepository.GetByIdAsync(new EmployeeId(employeeId));
@@ -366,7 +360,6 @@ namespace Presentation.WPF.Views
 
                         await _unitOfWork.SaveChangesAsync();
 
-                        // Recargar los datos después de la eliminación
                         await UpdateEmployeeGrid();
 
                         MessageBox.Show("Empleado actualizado exitosamente.", "Éxito", MessageBoxButton.OK, MessageBoxImage.Information);
@@ -440,9 +433,8 @@ namespace Presentation.WPF.Views
 
         private void ExitBtn_Click(object sender, RoutedEventArgs e)
         {
-            MainWindow mainWindow = new(_arlRepository, _pensionRepository, _epsRepository, _employeeRepository, _unitOfWork, _userRepository, _passwordHasher);
+            var mainWindow = _serviceProvider.GetRequiredService<MainWindow>();
             mainWindow.Show();
-
             this.Close();
         }
     }

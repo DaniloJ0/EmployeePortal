@@ -1,44 +1,27 @@
 ﻿using Core.Interfaces;
-using Domain.Arls;
-using Domain.Employees;
-using Domain.Epss;
-using Domain.Pensions;
-using Domain.Primitives;
 using Domain.Users;
 using Domain.ValueObjects;
+using Microsoft.Extensions.DependencyInjection;
 using Presentation.WPF.Views;
 using System.Windows;
-using System.Windows.Controls;
 
 namespace Presentation.WPF
 {
 
     public partial class MainWindow : Window
     {
-        private readonly IArlRepository _arlRepository;
-        private readonly IPensionRepository _pensionRepository;
-        private readonly IEpsRepository _epsRepository;
-        private readonly IEmployeeRepository _employeeRepository;
         private readonly IUserRepository _userRepository;
         private readonly IPasswordHasher _passwordHasher;
-        private readonly IUnitOfWork _unitOfWork;
-        public MainWindow(IArlRepository arlRepository, IPensionRepository pensionRepository, IEpsRepository epsRepository, IEmployeeRepository employeeRepository, IUnitOfWork unitOfWork, IUserRepository userRepositor, IPasswordHasher passwordHasher)
+        private readonly IServiceProvider _serviceProvider;
+
+        public MainWindow( IUserRepository userRepositor, IPasswordHasher passwordHasher, IServiceProvider serviceProvider)
         {
             InitializeComponent();
-            _arlRepository = arlRepository;
-            _pensionRepository = pensionRepository;
-            _epsRepository = epsRepository;
-            _employeeRepository = employeeRepository;
             _userRepository = userRepositor;
             _passwordHasher = passwordHasher;
-            _unitOfWork = unitOfWork;
+            _serviceProvider = serviceProvider;
         }
-
-        private void TextBox_TextChanged(object sender, TextChangedEventArgs e)
-        {
-           
-        }
-
+     
         private async void Login_Click(object sender, RoutedEventArgs e)
         {
             string email = EmailField.Text;
@@ -58,17 +41,15 @@ namespace Presentation.WPF
                 return;
             }
 
-            PortalEmployee portalEmployee = new (_arlRepository, _pensionRepository, _epsRepository, _employeeRepository, _unitOfWork, _userRepository, _passwordHasher);
-            portalEmployee.Show();
-
+            var registerWindow = _serviceProvider.GetRequiredService<PortalEmployee>();
+            registerWindow.Show();
             this.Close();
         }
 
         private void Register_Click(object sender, RoutedEventArgs e)
         {
-            Register register = new(_arlRepository, _pensionRepository, _epsRepository, _employeeRepository, _unitOfWork, _userRepository, _passwordHasher);
-            register.Show();
-
+            var registerWindow = _serviceProvider.GetRequiredService<Register>();
+            registerWindow.Show();
             this.Close();
         }
     }
