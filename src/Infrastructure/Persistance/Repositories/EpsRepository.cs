@@ -7,7 +7,8 @@ public class EpsRepository(ApplicationDbContext context) : IEpsRepository
 {
     private readonly ApplicationDbContext _context = context ?? throw new ArgumentNullException(nameof(context));
 
-    public async Task Add(Eps Eps) => await _context.Epss.AddAsync(Eps);  
+    public async Task Add(Eps Eps) => await _context.Epss.AddAsync(Eps);
+    public async Task<List<Eps>> GetAll() => await _context.Epss.ToListAsync();
 
     public async Task<Eps?> GetByIdAsync(Guid id) => await _context.Epss.SingleOrDefaultAsync(x => x.Id == id);
 }

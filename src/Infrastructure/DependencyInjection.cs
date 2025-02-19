@@ -3,6 +3,7 @@ using Domain.Arls;
 using Domain.Employees;
 using Domain.Epss;
 using Domain.Pensions;
+using Domain.Primitives;
 using Infrastructure.Persistance;
 using Infrastructure.Persistance.Repositories;
 using Microsoft.EntityFrameworkCore;
@@ -31,6 +32,7 @@ public static class DependencyInjection
         services.AddScoped<IPensionRepository, PensionRepository>();
         services.AddScoped<IArlRepository, ArlRepository>();
         services.AddScoped<IEpsRepository, EpsRepository>();
+        services.AddScoped<IUnitOfWork>(sp => sp.GetRequiredService<ApplicationDbContext>());
 
         return services;
     }

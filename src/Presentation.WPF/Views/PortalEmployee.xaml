@@ -5,24 +5,31 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Presentation.WPF.Views"
         mc:Ignorable="d"
-        Title="PortalEmployee" Height="550" Width="980">
+        Title="PortalEmployee" Height="650" Width="990"
+        WindowStartupLocation="CenterScreen"
+        ResizeMode="CanMinimize">
     <Grid>
-        <StackPanel Margin="0,0,0,459" Background="Teal"/>
-        <Label Content="Administración de empleados" HorizontalAlignment="Center" Height="34" Margin="0,100,0,0" VerticalAlignment="Top" Width="276" Foreground="Teal" FontWeight="Bold" FontSize="18"/>
-        <TextBox HorizontalAlignment="Left" Height="25" Margin="104,162,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="136" BorderThickness="0,0,0,1" ClipToBounds="True" BorderBrush="Teal" VerticalContentAlignment="Center"/>
-        <Label Content="Nombre" HorizontalAlignment="Left" Height="31" Margin="42,162,0,0" VerticalAlignment="Top" Width="79" FontWeight="Bold" FontFamily="Open Sans" Foreground="Teal" FontSize="13"/>
-        <TextBox HorizontalAlignment="Left" Height="25" Margin="104,198,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="136" BorderThickness="0,0,0,1" ClipToBounds="True" BorderBrush="Teal" VerticalContentAlignment="Center"/>
-        <Label Content="Cedula" HorizontalAlignment="Left" Height="31" Margin="42,198,0,0" VerticalAlignment="Top" Width="79" FontWeight="Bold" FontFamily="Open Sans" Foreground="Teal" FontSize="13"/>
-        <TextBox HorizontalAlignment="Left" Height="25" Margin="127,234,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="113" BorderThickness="0,0,0,1" ClipToBounds="True" BorderBrush="Teal" VerticalContentAlignment="Center"/>
-        <Label Content="T. de sangre" HorizontalAlignment="Left" Height="31" Margin="42,234,0,0" VerticalAlignment="Top" Width="102" FontWeight="Bold" FontFamily="Open Sans" Foreground="Teal" FontSize="13"/>
-        <TextBox HorizontalAlignment="Left" Height="25" Margin="121,270,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="119" BorderThickness="0,0,0,1" ClipToBounds="True" BorderBrush="Teal" VerticalContentAlignment="Center"/>
-        <Label Content="Telefono" HorizontalAlignment="Left" Height="31" Margin="42,272,0,0" VerticalAlignment="Top" Width="79" FontWeight="Bold" FontFamily="Open Sans" Foreground="Teal" FontSize="13"/>
-        <Label Content="Eps" HorizontalAlignment="Left" Height="31" Margin="42,308,0,0" VerticalAlignment="Top" Width="31" FontWeight="Bold" FontFamily="Open Sans" Foreground="Teal" FontSize="13"/>
-        <Label Content="Arl" HorizontalAlignment="Left" Height="31" Margin="42,339,0,0" VerticalAlignment="Top" Width="31" FontWeight="Bold" FontFamily="Open Sans" Foreground="Teal" FontSize="13"/>
-        <Label Content="Pensión" HorizontalAlignment="Left" Height="31" Margin="42,370,0,0" VerticalAlignment="Top" Width="62" FontWeight="Bold" FontFamily="Open Sans" Foreground="Teal" FontSize="13"/>
-        <Label Content="Salario" HorizontalAlignment="Left" Height="31" Margin="42,401,0,0" VerticalAlignment="Top" Width="79" FontWeight="Bold" FontFamily="Open Sans" Foreground="Teal" FontSize="13"/>
-        <TextBox HorizontalAlignment="Left" Height="25" Margin="104,401,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="136" BorderThickness="0,0,0,1" ClipToBounds="True" BorderBrush="Teal" VerticalContentAlignment="Center"/>
-        <ComboBox HorizontalAlignment="Left" Margin="86,311,0,0" VerticalAlignment="Top" Width="120" BorderBrush="#FFEFEFEF" RenderTransformOrigin="0.108,0.548" VerticalContentAlignment="Center">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="6*"/>
+            <ColumnDefinition Width="75*"/>
+            <ColumnDefinition Width="899*"/>
+        </Grid.ColumnDefinitions>
+        <StackPanel Margin="3,0,0,552" Background="Teal" Grid.ColumnSpan="3" Orientation="Horizontal"/>
+        <Label Content="Administración de empleados" HorizontalAlignment="Left" Height="34" Margin="271,100,0,0" VerticalAlignment="Top" Width="276" Foreground="Teal" FontWeight="Bold" FontSize="18" Grid.Column="2"/>
+        <TextBox x:Name="NameField" HorizontalAlignment="Left" Height="25" Margin="23,162,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="136" BorderThickness="0,0,0,1" ClipToBounds="True" BorderBrush="Teal" VerticalContentAlignment="Center" Grid.Column="2"/>
+        <Label Content="Nombre" HorizontalAlignment="Left" Height="31" Margin="36,162,0,0" VerticalAlignment="Top" Width="79" FontWeight="Bold" FontFamily="Open Sans" Foreground="Teal" FontSize="13" Grid.ColumnSpan="2" Grid.Column="1"/>
+        <TextBox x:Name="IdentificationField" HorizontalAlignment="Left" Height="25" Margin="23,198,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="136" BorderThickness="0,0,0,1" ClipToBounds="True" BorderBrush="Teal" VerticalContentAlignment="Center" Grid.Column="2"/>
+        <Label Content="Cedula" HorizontalAlignment="Left" Height="31" Margin="36,198,0,0" VerticalAlignment="Top" Width="79" FontWeight="Bold" FontFamily="Open Sans" Foreground="Teal" FontSize="13" Grid.ColumnSpan="2" Grid.Column="1"/>
+        <TextBox x:Name="BloodTypeField" Height="25" Margin="48,234,747,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="113" BorderThickness="0,0,0,1" ClipToBounds="True" BorderBrush="Teal" VerticalContentAlignment="Center" Grid.Column="2"/>
+        <Label Content="T. de sangre" HorizontalAlignment="Left" Height="31" Margin="36,234,0,0" VerticalAlignment="Top" Width="102" FontWeight="Bold" FontFamily="Open Sans" Foreground="Teal" FontSize="13" Grid.ColumnSpan="2" Grid.Column="1"/>
+        <TextBox x:Name="PhoneField" HorizontalAlignment="Left" Height="25" Margin="40,270,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="119" BorderThickness="0,0,0,1" ClipToBounds="True" BorderBrush="Teal" VerticalContentAlignment="Center" Grid.Column="2"/>
+        <Label Content="Telefono" HorizontalAlignment="Left" Height="31" Margin="36,272,0,0" VerticalAlignment="Top" Width="79" FontWeight="Bold" FontFamily="Open Sans" Foreground="Teal" FontSize="13" Grid.ColumnSpan="2" Grid.Column="1"/>
+        <Label Content="Eps" HorizontalAlignment="Left" Height="31" Margin="36,308,0,0" VerticalAlignment="Top" Width="31" FontWeight="Bold" FontFamily="Open Sans" Foreground="Teal" FontSize="13" Grid.Column="1"/>
+        <Label Content="Arl" HorizontalAlignment="Left" Height="31" Margin="36,339,0,0" VerticalAlignment="Top" Width="31" FontWeight="Bold" FontFamily="Open Sans" Foreground="Teal" FontSize="13" Grid.Column="1"/>
+        <Label Content="Pensión" HorizontalAlignment="Left" Height="31" Margin="36,370,0,0" VerticalAlignment="Top" Width="62" FontWeight="Bold" FontFamily="Open Sans" Foreground="Teal" FontSize="13" Grid.ColumnSpan="2" Grid.Column="1"/>
+        <Label Content="Salario" HorizontalAlignment="Left" Height="31" Margin="36,401,0,0" VerticalAlignment="Top" Width="79" FontWeight="Bold" FontFamily="Open Sans" Foreground="Teal" FontSize="13" Grid.ColumnSpan="2" Grid.Column="1"/>
+        <TextBox x:Name="SalaryField" HorizontalAlignment="Left" Height="25" Margin="23,401,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="136" BorderThickness="0,0,0,1" ClipToBounds="True" BorderBrush="Teal" VerticalContentAlignment="Center" Grid.Column="2" TextChanged="SalaryField_TextChanged"/>
+        <ComboBox x:Name="EpsList" HorizontalAlignment="Left" Margin="5,311,0,0" VerticalAlignment="Top" Width="140" BorderBrush="#FFEFEFEF" RenderTransformOrigin="0.108,0.548" VerticalContentAlignment="Center" Grid.Column="2" >
             <ComboBox.OpacityMask>
                 <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
                     <GradientStop Color="Black"/>
@@ -36,8 +43,8 @@
                 </LinearGradientBrush>
             </ComboBox.Background>
         </ComboBox>
-        <Image Margin="109,111,789,377" Source="/tarjeta-de-identificacion_green.png" RenderTransformOrigin="0.488,1.043"/>
-        <ComboBox HorizontalAlignment="Left" Margin="86,342,0,0" VerticalAlignment="Top" Width="120" BorderBrush="#FFEFEFEF" VerticalContentAlignment="Center">
+        <Image Margin="19,82,771,477" Source="/sources/tarjeta-de-identificacion_green.png" RenderTransformOrigin="0.488,1.043" Grid.Column="2"/>
+        <ComboBox x:Name="ArlList" HorizontalAlignment="Left" Margin="5,342,0,0" VerticalAlignment="Top" Width="140" BorderBrush="#FFEFEFEF" VerticalContentAlignment="Center" Grid.Column="2">
             <ComboBox.OpacityMask>
                 <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
                     <GradientStop Color="Black"/>
@@ -51,7 +58,7 @@
                 </LinearGradientBrush>
             </ComboBox.Background>
         </ComboBox>
-        <ComboBox HorizontalAlignment="Left" Margin="104,375,0,0" VerticalAlignment="Top" Width="120" BorderBrush="#FFEFEFEF" VerticalContentAlignment="Center">
+        <ComboBox x:Name="PensionList" Margin="23,375,749,0" VerticalAlignment="Top" BorderBrush="#FFEFEFEF" VerticalContentAlignment="Center" Grid.Column="2">
             <ComboBox.OpacityMask>
                 <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
                     <GradientStop Color="Black"/>
@@ -65,26 +72,46 @@
                 </LinearGradientBrush>
             </ComboBox.Background>
         </ComboBox>
-        <Button Content="Guardar" HorizontalAlignment="Left" Height="29" Margin="41,458,0,0" VerticalAlignment="Top" Width="80" FontFamily="Open Sans" BorderThickness="2,2,2,2" Foreground="White" BorderBrush="Teal" Background="Teal" FontSize="15" ClipToBounds="True"/>
-        <Button Content="Editar" HorizontalAlignment="Left" Height="29" Margin="144,461,0,0" VerticalAlignment="Top" Width="80" FontFamily="Open Sans" BorderThickness="2,2,2,2" Foreground="White" BorderBrush="#FF03AFAF" Background="#FF03AFAF" FontSize="15" ClipToBounds="True" RenderTransformOrigin="0.912,0.487" Click="Button_Click"/>
-        <StackPanel Margin="0,522,0,0" Background="Teal"/>
-        <Button Content="Eliminar" HorizontalAlignment="Left" Height="35" Margin="877,458,0,0" VerticalAlignment="Top" Width="80" FontFamily="Open Sans" BorderThickness="2,2,2,2" Foreground="White" BorderBrush="#FFE80606" Background="#FFE80606" FontSize="15" ClipToBounds="True" Click="Button_Click"/>
-        <DataGrid HorizontalAlignment="Left" Height="266" Margin="291,169,0,0" VerticalAlignment="Top" Width="666" d:ItemsSource="{d:SampleData ItemCount=5}" Background="White" BorderBrush="#FFDEDEDE"/>
-        <Label Content="Deduciones del salario:" HorizontalAlignment="Left" Height="19" Margin="291,444,0,0" VerticalAlignment="Top" Width="146" Foreground="Teal" FontWeight="Bold" VerticalContentAlignment="Stretch" Padding="5,2,5,2" Grid.IsSharedSizeScope="True" FontSize="13"/>
-        <Label Content="Valor Eps empresa (8.5%): " HorizontalAlignment="Left" Height="19" Margin="291,468,0,0" VerticalAlignment="Top" Width="164" Foreground="Black" FontWeight="Bold" VerticalContentAlignment="Stretch" Padding="5,2,5,2" Grid.IsSharedSizeScope="True"/>
-        <Label Content="Valor Salud empresa (8.5%): " HorizontalAlignment="Left" Height="19" Margin="291,492,0,0" VerticalAlignment="Top" Width="168" Foreground="Black" FontWeight="Bold" VerticalContentAlignment="Stretch" Padding="5,2,5,2" Grid.IsSharedSizeScope="True"/>
-        <Label Content="Valor Eps empleado (4%): " HorizontalAlignment="Left" Height="19" Margin="579,466,0,0" VerticalAlignment="Top" Width="158" Foreground="Black" FontWeight="Bold" VerticalContentAlignment="Stretch" Padding="5,2,5,2" Grid.IsSharedSizeScope="True"/>
-        <Label Content="Valor Salud empleado (4%): " HorizontalAlignment="Left" Height="19" Margin="579,492,0,0" VerticalAlignment="Top" Width="168" Foreground="Black" FontWeight="Bold" VerticalContentAlignment="Stretch" Padding="5,2,5,2" Grid.IsSharedSizeScope="True"/>
-        <Label Content="30000000" HorizontalAlignment="Left" Height="18" Margin="444,470,0,0" VerticalAlignment="Top" Width="72" VerticalContentAlignment="Center" Padding="5,2,5,2"/>
-        <Label Content="30000000" HorizontalAlignment="Left" Height="18" Margin="459,492,0,0" VerticalAlignment="Top" Width="85" VerticalContentAlignment="Center" Padding="5,2,5,2"/>
-        <Label Content="30000000" HorizontalAlignment="Left" Height="18" Margin="728,467,0,0" VerticalAlignment="Top" Width="72" VerticalContentAlignment="Center" Padding="5,2,5,2"/>
-        <Label Content="30000000" HorizontalAlignment="Left" Height="18" Margin="747,492,0,0" VerticalAlignment="Top" Width="72" VerticalContentAlignment="Center" Padding="5,2,5,2"/>
-        <Button HorizontalAlignment="Left" Height="37" Margin="910,121,0,0" VerticalAlignment="Top" Width="44" BorderThickness="0,0,0,0">
+        <Button x:Name="Save" Content="Guardar" HorizontalAlignment="Left" Height="29" Margin="35,458,0,0" VerticalAlignment="Top" Width="80" FontFamily="Open Sans" BorderThickness="2,2,2,2" Foreground="White" BorderBrush="Teal" Background="Teal" FontSize="15" ClipToBounds="True" Grid.ColumnSpan="2" Grid.Column="1" Click="Save_Click"/>
+        <Button x:Name="Edit" Content="Editar" HorizontalAlignment="Left" Height="29" Margin="65,458,0,0" VerticalAlignment="Top" Width="80" FontFamily="Open Sans" BorderThickness="2,2,2,2" Foreground="White" BorderBrush="#FF03AFAF" Background="#FF03AFAF" FontSize="15" ClipToBounds="True" RenderTransformOrigin="0.912,0.487" Grid.Column="2" Click="Edit_Click"/>
+        <StackPanel Margin="0,571,0,0" Background="Teal" Grid.ColumnSpan="3"/>
+        <Button x:Name="Delete" Content="Eliminar" HorizontalAlignment="Left" Height="35" Margin="796,458,0,0" VerticalAlignment="Top" Width="80" FontFamily="Open Sans" BorderThickness="2,2,2,2" Foreground="White" BorderBrush="#FFE80606" Background="#FFE80606" FontSize="15" ClipToBounds="True" Grid.Column="2" Click="Delete_Click"/>
+        <Grid Grid.Column="2" HorizontalAlignment="Left" Height="62" Margin="70,516,0,0" VerticalAlignment="Top" Width="92"/>
+        <DataGrid x:Name="MyDataGrid" HorizontalAlignment="Left" Height="266" Margin="210,169,0,0" VerticalAlignment="Top" Width="666"   Background="White" BorderBrush="#FFDEDEDE" Grid.Column="2" AutoGenerateColumns="False" SelectionMode="Single" SelectionChanged="MyDataGrid_SelectionChanged">
+            <DataGrid.ColumnHeaderStyle>
+                <Style TargetType="DataGridColumnHeader">
+                    <Setter Property="HorizontalContentAlignment" Value="Center"/>
+                    <Setter Property="FontWeight" Value="Bold"/>
+                </Style>
+            </DataGrid.ColumnHeaderStyle>
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Nombre" Binding="{Binding Name}" Width="*"/>
+                <DataGridTextColumn Header="Cédula" Binding="{Binding Identification}" Width="*"/>
+                <DataGridTextColumn Header="T. de Sangre" Binding="{Binding BloodType}" Width="*"/>
+                <DataGridTextColumn Header="Teléfono" Binding="{Binding Phone}" Width="*"/>
+                <DataGridTextColumn Header="ARL" Binding="{Binding ArlName}" Width="*"/>
+                <DataGridTextColumn Header="EPS" Binding="{Binding EpsName}" Width="*"/>
+                <DataGridTextColumn Header="Pensión" Binding="{Binding PensionName}" Width="*"/>
+                <DataGridTextColumn Header="Salario" Binding="{Binding Salary, StringFormat=C0}" Width="*"/>
+            </DataGrid.Columns>
+        </DataGrid>
+        <Label x:Name="TitleDeduction" Content="Deduciones del salario:" HorizontalAlignment="Left" Height="19" Margin="212,459,0,0" VerticalAlignment="Top" Width="146" Foreground="Teal" FontWeight="Bold" VerticalContentAlignment="Stretch" Padding="5,2,5,2" Grid.IsSharedSizeScope="True" FontSize="13" Grid.Column="2"/>
+        <Label x:Name="DescEpsCompany" Content="Valor Eps empresa (8.5%): " HorizontalAlignment="Left" Height="19" Margin="212,483,0,0" VerticalAlignment="Top" Width="164" Foreground="Black" FontWeight="Bold" VerticalContentAlignment="Stretch" Padding="5,2,5,2" Grid.IsSharedSizeScope="True" Grid.Column="2"/>
+        <Label x:Name="DescHealthCompany" Content="Valor Salud empresa (8.5%): " HorizontalAlignment="Left" Height="19" Margin="212,507,0,0" VerticalAlignment="Top" Width="168" Foreground="Black" FontWeight="Bold" VerticalContentAlignment="Stretch" Padding="5,2,5,2" Grid.IsSharedSizeScope="True" Grid.Column="2"/>
+        <Label x:Name="DescEpsEmployee" Content="Valor Eps empleado (4%): " HorizontalAlignment="Left" Height="19" Margin="500,481,0,0" VerticalAlignment="Top" Width="158" Foreground="Black" FontWeight="Bold" VerticalContentAlignment="Stretch" Padding="5,2,5,2" Grid.IsSharedSizeScope="True" Grid.Column="2"/>
+        <Label x:Name="DescHealthEmployee" Content="Valor Salud empleado (4%): " HorizontalAlignment="Left" Height="19" Margin="500,507,0,0" VerticalAlignment="Top" Width="168" Foreground="Black" FontWeight="Bold" VerticalContentAlignment="Stretch" Padding="5,2,5,2" Grid.IsSharedSizeScope="True" Grid.Column="2"/>
+        <Label x:Name="ValueEpsCompany" Content="30000000" HorizontalAlignment="Left" Height="18" Margin="365,485,0,0" VerticalAlignment="Top" Width="130" VerticalContentAlignment="Center" Padding="5,2,5,2" Grid.Column="2"/>
+        <Label x:Name="ValueHealthCompany" Content="30000000" HorizontalAlignment="Left" Height="18" Margin="380,507,0,0" VerticalAlignment="Top" Width="115" VerticalContentAlignment="Center" Padding="5,2,5,2" Grid.Column="2"/>
+        <Label x:Name="ValueEpsEmployee" Content="30000000" HorizontalAlignment="Left" Height="18" Margin="649,482,0,0" VerticalAlignment="Top" Width="125" VerticalContentAlignment="Center" Padding="5,2,5,2" Grid.Column="2"/>
+        <Label x:Name="ValueHealthEmployee" Content="30000000" HorizontalAlignment="Left" Height="18" Margin="668,507,0,0" VerticalAlignment="Top" Width="106" VerticalContentAlignment="Center" Padding="5,2,5,2" Grid.Column="2"/>
+        <Button HorizontalAlignment="Left" Height="37" Margin="829,121,0,0" VerticalAlignment="Top" Width="44" BorderThickness="0,0,0,0" Grid.Column="2">
             <Button.Background>
                 <ImageBrush/>
             </Button.Background>
             <Image Height="32" Width="38" Source="/Views/archivo.png" RenderTransformOrigin="-1.974,0.657"/>
         </Button>
+        <Label x:Name="DescSalaryFinal" Content="Salario después de deduciones: " HorizontalAlignment="Left" Height="19" Margin="500,532,0,0" VerticalAlignment="Top" Width="188" Foreground="Black" FontWeight="Bold" VerticalContentAlignment="Stretch" Padding="5,2,5,2" Grid.IsSharedSizeScope="True" Grid.Column="2"/>
+        <Label x:Name="ValueSalaryFinal" Content="30000000" HorizontalAlignment="Left" Height="18" Margin="688,532,0,0" VerticalAlignment="Top" Width="115" VerticalContentAlignment="Center" Padding="5,2,5,2" Grid.Column="2"/>
 
     </Grid>
 </Window>

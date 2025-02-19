@@ -6,10 +6,11 @@ using Domain.Pensions;
 using Core.Data;
 using Infrastructure.Persistance.Seed;
 using Microsoft.EntityFrameworkCore;
+using Domain.Primitives;
 
 namespace Infrastructure.Persistance;
 
-public class ApplicationDbContext(DbContextOptions options) : DbContext(options), IApplicationDBContext
+public class ApplicationDbContext(DbContextOptions options) : DbContext(options), IApplicationDBContext, IUnitOfWork
 {
     public DbSet<Employee> Employees { get; set; }
     public DbSet<Arl> Arls { get; set; }
@@ -22,5 +23,11 @@ public class ApplicationDbContext(DbContextOptions options) : DbContext(options)
 
         modelBuilder.ApplyConfigurationsFromAssembly(typeof(ApplicationDbContext).Assembly);
  
+    }
+
+    public override async Task<int> SaveChangesAsync(CancellationToken cancellationToken = new CancellationToken())
+    {
+        int result = await base.SaveChangesAsync(cancellationToken);
+        return result;
     }
 }

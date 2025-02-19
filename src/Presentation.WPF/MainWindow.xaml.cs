@@ -1,51 +1,43 @@
-﻿using Infrastructure.Persistance;
-using System;
-using System.Text;
+﻿using Domain.Arls;
+using Domain.Employees;
+using Domain.Epss;
+using Domain.Pensions;
+using Domain.Primitives;
+using Presentation.WPF.Views;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 
 namespace Presentation.WPF
 {
-    /// <summary>
-    /// Interaction logic for MainWindow.xaml
-    /// </summary>
+
     public partial class MainWindow : Window
     {
-        private readonly ApplicationDbContext _dbContext;
-
-        public MainWindow(ApplicationDbContext dbContext)
+        private readonly IArlRepository _arlRepository;
+        private readonly IPensionRepository _pensionRepository;
+        private readonly IEpsRepository _epsRepository;
+        private readonly IEmployeeRepository _employeeRepository;
+        private readonly IUnitOfWork _unitOfWork;
+        public MainWindow(IArlRepository arlRepository, IPensionRepository pensionRepository, IEpsRepository epsRepository, IEmployeeRepository employeeRepository, IUnitOfWork unitOfWork)
         {
             InitializeComponent();
-            _dbContext = dbContext;
+            _arlRepository = arlRepository;
+            _pensionRepository = pensionRepository;
+            _epsRepository = epsRepository;
+            _employeeRepository = employeeRepository;
+            _unitOfWork = unitOfWork;
         }
 
         private void TextBox_TextChanged(object sender, TextChangedEventArgs e)
         {
-
+           
         }
 
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            PortalEmployee portalEmployee = new(_arlRepository,_pensionRepository, _epsRepository, _employeeRepository, _unitOfWork);
+            portalEmployee.Show();
 
-        //private void BtnShowEmployees_Click(object sender, RoutedEventArgs e)
-        //{
-        //    try
-        //    {
-        //        // Obtener el número de empleados desde la base de datos
-        //        int employeeCount = _dbContext.Arls.Count();
-
-        //        // Mostrar el número en el Label
-        //        LblEmployeeCount.Content = $"Número de empleados: {employeeCount}";
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        MessageBox.Show($"Error al obtener empleados: {ex.Message}", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
-        //    }
-        //}
+            this.Close();
+        }
     }
 }
