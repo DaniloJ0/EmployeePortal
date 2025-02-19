@@ -10,12 +10,14 @@
         ResizeMode="CanMinimize">
     <Grid Background="White" RenderTransformOrigin="0.494,0.328">
         <StackPanel Margin="0,0,607,0" Background="Teal" RenderTransformOrigin="0.488,0.321"/>
-        <Label Content="Portal de empleados" HorizontalAlignment="Left" Height="43" Margin="483,46,0,0" Width="256" Foreground="Teal" FontWeight="Bold" FontSize="25" VerticalAlignment="Top"/>
-        <Image Margin="546,108,224,321" Source="/sources/tarjeta-de-identificacion_green.png"/>
-        <Label Content="Usuario" HorizontalAlignment="Left" Height="28" Margin="460,244,0,0" VerticalAlignment="Top" Width="119" FontWeight="Bold" Foreground="Teal" FontSize="16" FontFamily="Open Sans"/>
-        <Label Content="Contraseña" HorizontalAlignment="Left" Height="28" Margin="460,316,0,0" VerticalAlignment="Top" Width="119" FontWeight="Bold" Foreground="Teal" FontSize="16" FontFamily="Open Sans"/>
-        <TextBox HorizontalAlignment="Left" Margin="469,277,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="284" Height="34" TextChanged="TextBox_TextChanged" VerticalContentAlignment="Center"/>
-        <TextBox HorizontalAlignment="Left" Margin="469,344,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="284" Height="34" TextChanged="TextBox_TextChanged" VerticalContentAlignment="Center"/>
-        <Button Content="LOGIN" HorizontalAlignment="Left" Height="36" Margin="551,407,0,0" VerticalAlignment="Top" Width="120" FontFamily="Open Sans" BorderThickness="2,2,2,2" Foreground="Teal" FontWeight="Bold" BorderBrush="Teal" Background="White" FontSize="16" ClipToBounds="True" Click="Button_Click"/>
+        <Label Content="Portal de empleados" HorizontalAlignment="Left" Height="43" Margin="469,43,0,0" Width="256" Foreground="Teal" FontWeight="Bold" FontSize="25" VerticalAlignment="Top"/>
+        <Image Margin="532,106,238,323" Source="/sources/tarjeta-de-identificacion_green.png"/>
+        <Label Content="Usuario" HorizontalAlignment="Left" Height="28" Margin="446,241,0,0" VerticalAlignment="Top" Width="119" FontWeight="Bold" Foreground="Teal" FontSize="16" FontFamily="Open Sans"/>
+        <Label Content="Contraseña" HorizontalAlignment="Left" Height="28" Margin="446,313,0,0" VerticalAlignment="Top" Width="119" FontWeight="Bold" Foreground="Teal" FontSize="16" FontFamily="Open Sans"/>
+        <TextBox HorizontalAlignment="Left" Margin="455,274,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="284" Height="34" TextChanged="TextBox_TextChanged" VerticalContentAlignment="Center"/>
+        <TextBox HorizontalAlignment="Left" Margin="455,341,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="284" Height="34" TextChanged="TextBox_TextChanged" VerticalContentAlignment="Center"/>
+        <Button Content="LOGIN" HorizontalAlignment="Left" Height="36" Margin="537,404,0,0" VerticalAlignment="Top" Width="120" FontFamily="Open Sans" BorderThickness="2,2,2,2" Foreground="Teal" FontWeight="Bold" BorderBrush="Teal" Background="White" FontSize="16" ClipToBounds="True" Click="Button_Click"/>
+        <Button x:Name="Register" Content="registrate" HorizontalAlignment="Left" Height="22" Margin="610,454,0,0" VerticalAlignment="Top" Width="66" Background="White" Foreground="Teal" FontWeight="Bold" BorderThickness="0,0,0,1" SnapsToDevicePixels="True" Padding="0,0,0,0" BorderBrush="Teal" RenderTransformOrigin="0.809,0.603" Click="Register_Click"/>
+        <Label Content="¿No tienes cuenta? " HorizontalAlignment="Left" Height="22" Margin="495,455,0,0" VerticalAlignment="Top" Width="115" Foreground="#FFA2A2A2" FontWeight="Bold" FontFamily="Open Sans" Padding="2,2,2,2" RenderTransformOrigin="0.723,1.52"/>
     </Grid>
 </Window>

@@ -39,5 +39,13 @@ namespace Presentation.WPF
 
             this.Close();
         }
+
+        private void Register_Click(object sender, RoutedEventArgs e)
+        {
+            Register register = new(_arlRepository, _pensionRepository, _epsRepository, _employeeRepository, _unitOfWork);
+            register.Show();
+
+            this.Close();
+        }
     }
 }

@@ -11,6 +11,7 @@
   <ItemGroup>
     <None Remove="tarjeta-de-identificacion_green.png" />
     <None Remove="Views\archivo.png" />
+    <None Remove="Views\flecha-izquierda_white.png" />
   </ItemGroup>
 
   <ItemGroup>
@@ -35,6 +36,7 @@
   <ItemGroup>
     <Resource Include="sources\tarjeta-de-identificacion_green.png" />
     <Resource Include="Views\archivo.png" />
+    <Resource Include="Views\flecha-izquierda_white.png" />
   </ItemGroup>
 
   <ItemGroup>
