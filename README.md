@@ -25,7 +25,7 @@ dotnet ef migrations add initMigration -p Infrastructure  -s Presentation.WPF -o
 and after use this:
 
 ```
-dotnet ef database update -p ContactManagement.Infrastructure -s ContactManagement.API
+dotnet ef database update -p Infrastructure -s Presentation.WPF
 ```
 
 
