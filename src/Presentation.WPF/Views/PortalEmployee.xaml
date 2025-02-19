@@ -104,11 +104,10 @@
         <Label x:Name="ValueHealthCompany" Content="30000000" HorizontalAlignment="Left" Height="18" Margin="380,507,0,0" VerticalAlignment="Top" Width="115" VerticalContentAlignment="Center" Padding="5,2,5,2" Grid.Column="2"/>
         <Label x:Name="ValueEpsEmployee" Content="30000000" HorizontalAlignment="Left" Height="18" Margin="649,482,0,0" VerticalAlignment="Top" Width="125" VerticalContentAlignment="Center" Padding="5,2,5,2" Grid.Column="2"/>
         <Label x:Name="ValueHealthEmployee" Content="30000000" HorizontalAlignment="Left" Height="18" Margin="668,507,0,0" VerticalAlignment="Top" Width="106" VerticalContentAlignment="Center" Padding="5,2,5,2" Grid.Column="2"/>
-        <Button HorizontalAlignment="Left" Height="37" Margin="829,121,0,0" VerticalAlignment="Top" Width="44" BorderThickness="0,0,0,0" Grid.Column="2">
+        <Button x:Name="DownloadExcel" HorizontalAlignment="Left" Height="36" Margin="836,121,0,0" VerticalAlignment="Top" Width="40" BorderThickness="0,0,0,0" Grid.Column="2" Click="DownloadExcel_Click">
             <Button.Background>
-                <ImageBrush/>
+                <ImageBrush ImageSource="/Views/archivo.png"/>
             </Button.Background>
-            <Image Height="32" Width="38" Source="/Views/archivo.png" RenderTransformOrigin="-1.974,0.657"/>
         </Button>
         <Label x:Name="DescSalaryFinal" Content="Salario después de deduciones: " HorizontalAlignment="Left" Height="19" Margin="500,532,0,0" VerticalAlignment="Top" Width="188" Foreground="Black" FontWeight="Bold" VerticalContentAlignment="Stretch" Padding="5,2,5,2" Grid.IsSharedSizeScope="True" Grid.Column="2"/>
         <Label x:Name="ValueSalaryFinal" Content="30000000" HorizontalAlignment="Left" Height="18" Margin="688,532,0,0" VerticalAlignment="Top" Width="115" VerticalContentAlignment="Center" Padding="5,2,5,2" Grid.Column="2"/>

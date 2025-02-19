@@ -1,10 +1,12 @@
-﻿using Core.DTOs;
+﻿using ClosedXML.Excel;
+using Core.DTOs;
 using Domain.Arls;
 using Domain.Employees;
 using Domain.Epss;
 using Domain.Pensions;
 using Domain.Primitives;
 using Domain.ValueObjects;
+using System.IO;
 using System.Windows;
 using System.Windows.Controls;
 using static Microsoft.EntityFrameworkCore.DbLoggerCategory.Database;
@@ -381,6 +383,61 @@ namespace Presentation.WPF.Views
             else
             {
                 MessageBox.Show("Por favor selecciona un empleado para editar.", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+        }
+
+        private void DownloadExcel_Click(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                using var workbook = new XLWorkbook();
+                var worksheet = workbook.Worksheets.Add("Empleados");
+
+                worksheet.Cell(1, 1).Value = "Nombre";
+                worksheet.Cell(1, 2).Value = "Cédula";
+                worksheet.Cell(1, 3).Value = "T. de Sangre";
+                worksheet.Cell(1, 4).Value = "Teléfono";
+                worksheet.Cell(1, 5).Value = "ARL";
+                worksheet.Cell(1, 6).Value = "EPS";
+                worksheet.Cell(1, 7).Value = "Pensión";
+                worksheet.Cell(1, 8).Value = "Salario";
+
+                var headerRange = worksheet.Range("A1:H1");
+                headerRange.Style.Font.Bold = true;
+                headerRange.Style.Alignment.Horizontal = XLAlignmentHorizontalValues.Center;
+                headerRange.Style.Alignment.Vertical = XLAlignmentVerticalValues.Center;
+                headerRange.Style.Border.OutsideBorder = XLBorderStyleValues.Thin;
+                headerRange.Style.Border.InsideBorder = XLBorderStyleValues.Thin;
+
+                if (MyDataGrid.ItemsSource is List<EmployeeDto> employees)
+                {
+                    for (int i = 0; i < employees.Count; i++)
+                    {
+                        worksheet.Cell(i + 2, 1).Value = employees[i].Name;
+                        worksheet.Cell(i + 2, 2).Value = employees[i].Identification;
+                        worksheet.Cell(i + 2, 3).Value = employees[i].BloodType;
+                        worksheet.Cell(i + 2, 4).Value = employees[i].Phone;
+                        worksheet.Cell(i + 2, 5).Value = employees[i].ArlName;
+                        worksheet.Cell(i + 2, 6).Value = employees[i].EpsName;
+                        worksheet.Cell(i + 2, 7).Value = employees[i].PensionName;
+                        worksheet.Cell(i + 2, 8).Value = employees[i].Salary;
+
+                        worksheet.Range(i + 2, 1, i + 2, 8).Style.Border.OutsideBorder = XLBorderStyleValues.Thin;
+                        worksheet.Range(i + 2, 1, i + 2, 8).Style.Border.InsideBorder = XLBorderStyleValues.Thin;
+                    }
+                }
+
+                worksheet.Columns().AdjustToContents();
+
+                var desktopPath = Environment.GetFolderPath(Environment.SpecialFolder.Desktop);
+                var filePath = Path.Combine(desktopPath, "Empleados.xlsx");
+                workbook.SaveAs(filePath);
+
+                MessageBox.Show("Archivo Excel generado exitosamente en el escritorio.", "Éxito", MessageBoxButton.OK, MessageBoxImage.Information);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Ocurrió un error: {ex.Message}", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
     }
