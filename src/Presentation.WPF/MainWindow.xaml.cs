@@ -58,7 +58,7 @@ namespace Presentation.WPF
                 return;
             }
 
-            PortalEmployee portalEmployee = new(_arlRepository,_pensionRepository, _epsRepository, _employeeRepository, _unitOfWork);
+            PortalEmployee portalEmployee = new (_arlRepository, _pensionRepository, _epsRepository, _employeeRepository, _unitOfWork, _userRepository, _passwordHasher);
             portalEmployee.Show();
 
             this.Close();

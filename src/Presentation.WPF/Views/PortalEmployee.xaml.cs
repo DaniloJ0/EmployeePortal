@@ -1,15 +1,16 @@
 ﻿using ClosedXML.Excel;
 using Core.DTOs;
+using Core.Interfaces;
 using Domain.Arls;
 using Domain.Employees;
 using Domain.Epss;
 using Domain.Pensions;
 using Domain.Primitives;
+using Domain.Users;
 using Domain.ValueObjects;
 using System.IO;
 using System.Windows;
 using System.Windows.Controls;
-using static Microsoft.EntityFrameworkCore.DbLoggerCategory.Database;
 
 namespace Presentation.WPF.Views
 {
@@ -19,9 +20,11 @@ namespace Presentation.WPF.Views
         private readonly IPensionRepository _pensionRepository;
         private readonly IEpsRepository _epsRepository;
         private readonly IEmployeeRepository _employeeRepository;
+        private readonly IUserRepository _userRepository;
+        private readonly IPasswordHasher _passwordHasher;
         private readonly IUnitOfWork _unitOfWork;
 
-        public PortalEmployee(IArlRepository arlRepository, IPensionRepository pensionRepository, IEpsRepository epsRepository, IEmployeeRepository employeeRepository, IUnitOfWork unitOfWork)
+        public PortalEmployee(IArlRepository arlRepository, IPensionRepository pensionRepository, IEpsRepository epsRepository, IEmployeeRepository employeeRepository, IUnitOfWork unitOfWork, IUserRepository userRepositor, IPasswordHasher passwordHasher)
         {
             InitializeComponent();
             HideFields();
@@ -29,6 +32,8 @@ namespace Presentation.WPF.Views
             _pensionRepository = pensionRepository;
             _epsRepository = epsRepository;
             _employeeRepository = employeeRepository;
+            _userRepository = userRepositor;
+            _passwordHasher = passwordHasher;
             _unitOfWork = unitOfWork;
             Loaded += LoginWindow_Loaded;
         }
@@ -37,14 +42,6 @@ namespace Presentation.WPF.Views
         {
             await LoadDataAsync();
         }
-
-        //private void Button_Click(object sender, RoutedEventArgs e)
-        //{
-        //    MainWindow mainWindow = new(_arlRepository, _pensionRepository, _epsRepository, _employeeRepository);
-        //    mainWindow.Show();
-
-        //    this.Close();
-        //}
 
         private void HideFields()
         {
@@ -439,6 +436,14 @@ namespace Presentation.WPF.Views
             {
                 MessageBox.Show($"Ocurrió un error: {ex.Message}", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
             }
+        }
+
+        private void ExitBtn_Click(object sender, RoutedEventArgs e)
+        {
+            MainWindow mainWindow = new(_arlRepository, _pensionRepository, _epsRepository, _employeeRepository, _unitOfWork, _userRepository, _passwordHasher);
+            mainWindow.Show();
+
+            this.Close();
         }
     }
 }
