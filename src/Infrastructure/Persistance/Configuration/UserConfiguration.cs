@@ -19,10 +19,10 @@ public class UserConfiguration : IEntityTypeConfiguration<User>
            .HasConversion(
                email => email.Value,
                value => Email.Create(value)!)
-            .HasMaxLength(9);
+            .HasMaxLength(100);
 
         builder.Property(c => c.Password)
-            .HasMaxLength(30);
+            .HasMaxLength(500);
         
 
         builder.Property(c => c.CreatedAt);

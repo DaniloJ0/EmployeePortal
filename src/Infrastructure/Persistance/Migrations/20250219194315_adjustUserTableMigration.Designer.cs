@@ -4,6 +4,7 @@ using Infrastructure.Persistance;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Infrastructure.Persistance.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20250219194315_adjustUserTableMigration")]
+    partial class adjustUserTableMigration
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -44,13 +47,13 @@ namespace Infrastructure.Persistance.Migrations
                         new
                         {
                             Id = new Guid("f47a4416-8b3a-4e6c-80f4-785e7391b23f"),
-                            CreatedAt = new DateTime(2025, 2, 19, 14, 45, 15, 783, DateTimeKind.Local).AddTicks(2863),
+                            CreatedAt = new DateTime(2025, 2, 19, 14, 43, 14, 720, DateTimeKind.Local).AddTicks(431),
                             Name = "Sura"
                         },
                         new
                         {
                             Id = new Guid("547f51da-9545-4a7b-b8bd-0a73c8411e26"),
-                            CreatedAt = new DateTime(2025, 2, 19, 14, 45, 15, 783, DateTimeKind.Local).AddTicks(2863),
+                            CreatedAt = new DateTime(2025, 2, 19, 14, 43, 14, 720, DateTimeKind.Local).AddTicks(431),
                             Name = "Colpatria"
                         });
                 });
@@ -128,13 +131,13 @@ namespace Infrastructure.Persistance.Migrations
                         new
                         {
                             Id = new Guid("c5a65b34-334f-4355-a8b7-0098d92c7f8e"),
-                            CreatedAt = new DateTime(2025, 2, 19, 14, 45, 15, 783, DateTimeKind.Local).AddTicks(2863),
+                            CreatedAt = new DateTime(2025, 2, 19, 14, 43, 14, 720, DateTimeKind.Local).AddTicks(431),
                             Name = "Sanitas"
                         },
                         new
                         {
                             Id = new Guid("8e0c872e-f1f6-456a-8bcf-3a6b7a2a7c98"),
-                            CreatedAt = new DateTime(2025, 2, 19, 14, 45, 15, 783, DateTimeKind.Local).AddTicks(2863),
+                            CreatedAt = new DateTime(2025, 2, 19, 14, 43, 14, 720, DateTimeKind.Local).AddTicks(431),
                             Name = "Nueva EPS"
                         });
                 });
@@ -161,13 +164,13 @@ namespace Infrastructure.Persistance.Migrations
                         new
                         {
                             Id = new Guid("debead27-46a2-446f-8597-ab06b88695b1"),
-                            CreatedAt = new DateTime(2025, 2, 19, 14, 45, 15, 783, DateTimeKind.Local).AddTicks(2863),
+                            CreatedAt = new DateTime(2025, 2, 19, 14, 43, 14, 720, DateTimeKind.Local).AddTicks(431),
                             Name = "Porvenir"
                         },
                         new
                         {
                             Id = new Guid("880f4e17-7bd1-4b86-a51c-fd5b65b2c33d"),
-                            CreatedAt = new DateTime(2025, 2, 19, 14, 45, 15, 783, DateTimeKind.Local).AddTicks(2863),
+                            CreatedAt = new DateTime(2025, 2, 19, 14, 43, 14, 720, DateTimeKind.Local).AddTicks(431),
                             Name = "Protección"
                         });
                 });
@@ -187,8 +190,8 @@ namespace Infrastructure.Persistance.Migrations
 
                     b.Property<string>("Password")
                         .IsRequired()
-                        .HasMaxLength(500)
-                        .HasColumnType("nvarchar(500)");
+                        .HasMaxLength(30)
+                        .HasColumnType("nvarchar(30)");
 
                     b.HasKey("Id");
 
