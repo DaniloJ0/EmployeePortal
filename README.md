@@ -36,7 +36,7 @@ Register
 ![image](https://github.com/user-attachments/assets/a28a0502-0535-44b0-850d-d8bafd144cbe)
 
 Employee Portal
-![image](https://github.com/user-attachments/assets/01753970-8135-451c-9255-8892c68ad557)
+![image](https://github.com/user-attachments/assets/c0d1a0ef-af98-4dab-aaf3-878bb081cb76)
 
 Excel 
 ![image](https://github.com/user-attachments/assets/50a993b2-6446-4fd4-861e-fbc1f08a9318)
