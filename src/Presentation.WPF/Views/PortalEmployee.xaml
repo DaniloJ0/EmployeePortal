@@ -95,7 +95,7 @@
                 <DataGridTextColumn Header="Salario" Binding="{Binding Salary, StringFormat=C0}" Width="*"/>
             </DataGrid.Columns>
         </DataGrid>
-        <Label x:Name="TitleDeduction" Content="Deduciones del salario:" HorizontalAlignment="Left" Height="19" Margin="212,459,0,0" VerticalAlignment="Top" Width="146" Foreground="Teal" FontWeight="Bold" VerticalContentAlignment="Stretch" Padding="5,2,5,2" Grid.IsSharedSizeScope="True" FontSize="13" Grid.Column="2"/>
+        <Label x:Name="TitleDeduction" Content="Deducciones del salario:" HorizontalAlignment="Left" Height="19" Margin="212,459,0,0" VerticalAlignment="Top" Width="164" Foreground="Teal" FontWeight="Bold" VerticalContentAlignment="Stretch" Padding="5,2,5,2" Grid.IsSharedSizeScope="True" FontSize="13" Grid.Column="2"/>
         <Label x:Name="DescEpsCompany" Content="Valor Eps empresa (8.5%): " HorizontalAlignment="Left" Height="19" Margin="212,483,0,0" VerticalAlignment="Top" Width="164" Foreground="Black" FontWeight="Bold" VerticalContentAlignment="Stretch" Padding="5,2,5,2" Grid.IsSharedSizeScope="True" Grid.Column="2"/>
         <Label x:Name="DescHealthCompany" Content="Valor Salud empresa (8.5%): " HorizontalAlignment="Left" Height="19" Margin="212,507,0,0" VerticalAlignment="Top" Width="168" Foreground="Black" FontWeight="Bold" VerticalContentAlignment="Stretch" Padding="5,2,5,2" Grid.IsSharedSizeScope="True" Grid.Column="2"/>
         <Label x:Name="DescEpsEmployee" Content="Valor Eps empleado (4%): " HorizontalAlignment="Left" Height="19" Margin="500,481,0,0" VerticalAlignment="Top" Width="158" Foreground="Black" FontWeight="Bold" VerticalContentAlignment="Stretch" Padding="5,2,5,2" Grid.IsSharedSizeScope="True" Grid.Column="2"/>
