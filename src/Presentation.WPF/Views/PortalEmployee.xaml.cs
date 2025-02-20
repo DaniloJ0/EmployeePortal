@@ -8,6 +8,7 @@ using Domain.Primitives;
 using Domain.ValueObjects;
 using Microsoft.Extensions.DependencyInjection;
 using System.IO;
+using System.Text.RegularExpressions;
 using System.Windows;
 using System.Windows.Controls;
 
@@ -221,6 +222,18 @@ namespace Presentation.WPF.Views
             if (await _employeeRepository.GetByIdentification(cedula))
             {
                 MessageBox.Show("La cedula ya ha sido registrada", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                return;
+            }
+
+            if (!Regex.IsMatch(cedula, @"^\d+$"))
+            {
+                MessageBox.Show("La cédula debe contener solo números.", "Formato incorrecto", MessageBoxButton.OK, MessageBoxImage.Warning);
+                return;
+            }
+
+            if (!Regex.IsMatch(bloodType, @"^(A|B|AB|O)[+-]$"))
+            {
+                MessageBox.Show("El tipo de sangre debe ser A+, A-, B+, B-, AB+, AB-, O+ u O-.", "Formato incorrecto", MessageBoxButton.OK, MessageBoxImage.Warning);
                 return;
             }
 
