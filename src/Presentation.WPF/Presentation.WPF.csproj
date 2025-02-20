@@ -37,9 +37,9 @@
 
   <ItemGroup>
     <Resource Include="sources\tarjeta-de-identificacion_green.png" />
-    <Resource Include="sources\archivo.png" />
-    <Resource Include="sources\cerrar-sesion.png" />
-    <Resource Include="sources\flecha-izquierda_white.png" />
+    <Resource Include="Views\archivo.png" />
+    <Resource Include="Views\cerrar-sesion.png" />
+    <Resource Include="Views\flecha-izquierda_white.png" />
   </ItemGroup>
 
   <ItemGroup>
