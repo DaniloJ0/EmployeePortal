@@ -1,10 +1,11 @@
-﻿using Microsoft.Extensions.Configuration;
+﻿using Core;
+using Infrastructure;
+using Microsoft.Data.SqlClient;
+using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Presentation.WPF.Views;
 using System.IO;
 using System.Windows;
-using Infrastructure;
-using Core;
-using Presentation.WPF.Views;
 
 
 namespace Presentation.WPF
@@ -34,6 +35,16 @@ namespace Presentation.WPF
                 .AddJsonFile("appsettings.json", optional: false, reloadOnChange: true)
             .Build();
 
+            var connectionString = configuration.GetConnectionString("DefaultConnection");
+
+            if (!TestDatabaseConnection(connectionString))
+            {
+                MessageBox.Show("No se pudo establecer la conexión a la base de datos. La aplicación se cerrará.",
+                                "Error de conexión", MessageBoxButton.OK, MessageBoxImage.Error);
+
+                Environment.Exit(0);
+            }
+
             services.AddSingleton<IConfiguration>(configuration);
 
             // Capa de infraestructura (base de datos y repositorios)
@@ -46,6 +57,24 @@ namespace Presentation.WPF
             services.AddTransient<MainWindow>();
             services.AddTransient<PortalEmployee>();
             services.AddTransient<Register>();
+        }
+
+
+        private static bool TestDatabaseConnection(string? connectionString)
+        {
+            if (connectionString is null) return false;
+
+            try
+            {
+                using var connection = new SqlConnection(connectionString);
+                connection.Open();
+                return true;
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Error de conexión a la base de datos: {ex.Message}");
+                return false;
+            }
         }
     }
 
